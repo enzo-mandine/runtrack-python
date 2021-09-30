@@ -11,7 +11,7 @@ for i in range(ord('a'), ord('z') + 1):
 for occurence in read:
     for letter in count.keys():
         if occurence == letter:
-            count[letter] = count[letter] + 1
+            count[letter] += 1
 
 print(count)
 

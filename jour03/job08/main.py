@@ -32,15 +32,15 @@ for i in range(1, j):
     total += percent
 
 # plt.hist(result.values(), bins=len(result.keys()), range=(.1, 19))
-
 # Pie chart, where the slices will be ordered and plotted counter-clockwise:
 labels = result.keys()
 sizes = result.values()
-explode = (.1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1,
-           .1)  # only "explode" the 2nd slice (i.e. 'Hogs')
+# only "explode" the 2nd slice (i.e. 'Hogs')
+explode = (.1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1)
 
 fig1, ax1 = plt.subplots()
 ax1.pie(sizes, explode=explode, labels=range(0, 19), rotatelabels=True, autopct='%1.1f%%', shadow=False, startangle=90)
-ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+# Equal aspect ratio ensures that pie is drawn as a circle.
+ax1.axis('equal')
 
 plt.show()

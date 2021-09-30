@@ -5,3 +5,5 @@ read = file.read()
 file.close()
 regex = re.findall(r"\w+", read)
 count = len(regex)
+
+print(count)
