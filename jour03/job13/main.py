@@ -1,33 +1,25 @@
 import math
-
 import matplotlib.pyplot as plt
 import re
 
 file = open('data.txt', 'r')
 read = file.read()
 file.close()
-read = read.lower()
-wordCount = len(re.findall(r"\w+", read))
+firstLetter = re.findall(r"\b[a-zA-Z]", read, re.MULTILINE)
 count = {}
-percent = {}
+result = {}
+
 for i in range(ord('a'), ord('z') + 1):
     count.update({chr(i): 0})
-    percent.update({chr(i): 0})
 
-for occurence in read:
-    for letter in count.keys():
-        if occurence == letter:
-            count[letter] += 1
-            break
+for j in firstLetter:
+    count[j.lower()] += 1
 
-for i in range(ord('a'), ord('z') + 1):
-    count.update({chr(i): math.floor((100 * count[chr(i)]) / wordCount)})
+for k in count:
+    count[k] = (count[k] * 100) / len(re.findall(r"\w+", read))
 
-result = {}
-for item in sorted(count.items(), key=lambda kv: [kv[1], kv[0]], reverse=True):
-    i = item[0]
-    v = item[1]
-    result.update({i: v})
+for i in sorted(count.items(), key=lambda kv: [kv[1], kv[0]], reverse=True):
+    result.update({i[0]: i[1]})
 
 plt.bar(result.keys(), result.values())
 plt.show()
