@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import re
 
 file = open('data.txt', 'r')
@@ -18,4 +17,4 @@ while i <= ord('z'):
 for i in data:
     result[i[0].lower()][i[1].lower()] += 1
 
-print(result)
+print(result['a'])
