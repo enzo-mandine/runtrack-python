@@ -1,17 +1,13 @@
 import re
 import string
 import matplotlib.pyplot as plt
-import numpy as np
 
 
 def sort(data):
     sortedData = {}
     for i in data:
         sortedData.update({i: {}})
-        # sorted(data[i].items(), key=lambda kv: [kv[1], kv[0]], reverse=True)
-        # print(i, sorted(data[i].items(), key=lambda kv: [kv[1], kv[0]], reverse=True))
         for j in sorted(data[i].items(), key=lambda kv: [kv[1], kv[0]], reverse=True):
-            # print(i, j[0], j[1])
             sortedData[i].update({j[0]: j[1]})
     return sortedData
 
@@ -39,9 +35,6 @@ for i in abc:
         if result[i].get(j) != 0:
             result[i].update({j: result[i][j] * 100 / total})
 
-result = sort(result)
-for i in abc:
-    plt.title(i)
-    for j in result[i]:
-        plt.bar(j, result[i][j])
-    plt.show()
+for k in result.items():
+    plt.plot(list(k[1].keys()), list(k[1].values()))
+plt.show()
