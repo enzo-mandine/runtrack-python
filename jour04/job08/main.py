@@ -8,6 +8,13 @@ def defineX(d, posX):
     return posX
 
 
+def printBoard(board):
+    i = 0
+    while i < len(board):
+        print(board[i])
+        i += 1
+
+
 def placeQueen(board, posY, posX):
     d = len(board)
     board[posY][posX] = "X"
@@ -18,13 +25,6 @@ def placeQueen(board, posY, posX):
         return printBoard(board)
 
     return placeQueen(board, posY, posX)
-
-
-def printBoard(board):
-    i = 0
-    while i < len(board):
-        print(board[i])
-        i += 1
 
 
 n = int(input('i: '))
